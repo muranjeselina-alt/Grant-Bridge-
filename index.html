@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NGO Proposal Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="hero" aria-label="Grant Bridge hero section">
+    <div class="hero-overlay"></div>
+    <div class="hero-topbar">
+      <div class="brand">
+        <div class="brand-logo" aria-label="Grant Bridge logo">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect x="6" y="6" width="52" height="52" rx="16" fill="#FF6F00"></rect>
+            <path d="M17 46h30" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"></path>
+            <text x="32" y="39" text-anchor="middle" font-size="22" font-weight="700" font-family="Segoe UI, Arial, sans-serif" fill="#FFFFFF" letter-spacing="1">GB</text>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="typewriter" aria-label="Grant Bridge"><span class="type-text">Grant <span class="bridge-word">Bridge</span></span></h1>
+        </div>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="about.html">About Us</a>
+        <a href="offer.html">What We Offer</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="experience.html">Our Experience</a>
+        <!-- <a class="generate-btn" href="#proposal-form">Generate Now</a> -->
+      </nav>
+    </div>
+    <div class="hero-content">
+      <h2>Empowering communities through actionable project proposals</h2>
+      <p class="hero-subtext">Turn ideas into fundable plans that create lasting local impact.</p>
+      <a class="hero-btn" href="#proposal-form">Generate Now</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Form Side -->
+    <section class="card" id="proposal-form">
+      <h2>Proposal Configuration</h2>
+      
+      <div class="form-group">
+        <label for="templateSelect">Select Proposal Type</label>
+        <select id="templateSelect">
+          <option value="garbage">Community Garbage Collection & Waste Management</option>
+          <option value="boychild">Empowerment & Mentorship for the Boy Child</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="organizationName">NGO / Organization Name</label>
+        <input type="text" id="organizationName" placeholder="e.g., Hope Foundation">
+      </div>
+
+      <div class="form-group">
+        <label for="targetLocation">Target Community / Location</label>
+        <input type="text" id="targetLocation" placeholder="e.g., Eastside District">
+      </div>
+
+      <div class="form-group">
+        <label for="budget">Estimated Budget ($)</label>
+        <input type="number" id="budget" placeholder="e.g., 15000">
+      </div>
+
+      <div class="form-group">
+        <label for="projectObjectives">Key Objectives</label>
+        <textarea id="projectObjectives"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="expectedOutcomes">Expected Impact / Outcomes</label>
+        <textarea id="expectedOutcomes"></textarea>
+      </div>
+    </section>
+
+    <!-- Preview & Outreach Side -->
+    <section class="card">
+      <h2>Generated Document Preview</h2>
+      <div id="proposalOutput" class="preview-box">
+        <!-- Live proposal text populates here -->
+      </div>
+      
+      <div class="btn-group">
+        <button class="btn btn-primary" id="copyBtn">Copy Proposal Text</button>
+        <button class="btn btn-secondary" id="printBtn">Print / Save PDF</button>
+      </div>
+
+      <!-- Donor Link Section -->
+      <div class="donor-section">
+        <h3>Connect with Potential Donors</h3>
+        <p>Explore grant opportunities tailored to your selected project type:</p>
+        <div id="donorLinksContainer" class="donor-links">
+          <!-- Dynamic donor links populated via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Grant <span>Bridge</span></h3>
+        <p>Building stronger community impact through clear, actionable proposals.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><span>✓</span> <a href="index.html">Home</a></li>
+          <li><span>✓</span> <a href="about.html">About Us</a></li>
+          <li><span>✓</span> <a href="offer.html">What We Offer</a></li>
+          <li><span>✓</span> <a href="contacts.html">Contacts</a></li>
+          <li><span>✓</span> <a href="experience.html">Our Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-phone fa-fw"></i>
+          <div>
+            <span class="label">Call Us</span>
+            <a href="tel:+254712345678">+254 712 345 678</a>
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot fa-fw"></i>
+          <div>
+            <span class="label">Location</span>
+            <p>Mombasa, Kenya</p>
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-envelope fa-fw"></i>
+          <div>
+            <span class="label">Email</span>
+            <a href="mailto:info@grantbridge.com">info@grantbridge.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Grant Bridge. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
