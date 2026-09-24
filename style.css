@@ -17,8 +17,13 @@
 }
 
 body {
-  background-color: var(--neutral-bg);
-  color: var(--text-dark);
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 25, 47, 0.52), rgba(0, 25, 47, 0.52)), url('https://i.pinimg.com/736x/7e/f9/1f/7ef91f94edcea5b7c4a684ae1f22a40d.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--white);
   line-height: 1.6;
 }
 
@@ -185,6 +190,19 @@ nav a:focus-visible {
   background-position: center;
 }
 
+.hero-header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-image: linear-gradient(rgba(0, 25, 47, 0.52), rgba(0, 25, 47, 0.52)), url('https://i.pinimg.com/736x/7e/f9/1f/7ef91f94edcea5b7c4a684ae1f22a40d.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -256,25 +274,38 @@ nav a:focus-visible {
 }
 
 .page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.about-image-copy {
+  position: relative;
+  z-index: 1;
   max-width: 1000px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  margin: 8rem auto 0;
+  padding: 0 1.5rem;
+  text-align: center;
 }
 
-.page-card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+.about-image-copy p {
+  margin: 0 auto 1.2rem;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.8;
+  text-align: center;
+  color: var(--white);
+  max-width: 820px;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
-.page-card h2 {
-  margin-bottom: 1rem;
+.about-image-copy a {
+  color: var(--primary-orange);
 }
 
-.page-card p {
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
+.about-image-copy .bridge-word,
+.about-image-copy .accent-word {
+  color: var(--primary-orange);
 }
 
 .page-list {
@@ -441,7 +472,7 @@ textarea {
   background: linear-gradient(90deg, #0B5FA5 0%, #004B87 100%);
   color: var(--white);
   padding: 2.5rem 1rem 1rem;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .footer-inner {

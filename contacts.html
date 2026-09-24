@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-body">
-  <header class="page-header">
-    <div class="page-header-inner">
+  <header class="hero hero-header" aria-label="Grant Bridge header">
+    <div class="hero-overlay"></div>
+    <div class="hero-topbar">
       <div class="brand">
         <div class="brand-logo" aria-label="Grant Bridge logo">
           <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
@@ -18,25 +19,76 @@
           </svg>
         </div>
         <div class="brand-text">
-          <h1>Grant Bridge</h1>
+          <h1 class="typewriter" aria-label="Grant Bridge"><span class="type-text">Grant <span class="bridge-word">Bridge</span></span></h1>
         </div>
       </div>
       <nav aria-label="Primary navigation">
-        <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="offer.html">What We Offer</a>
         <a href="contacts.html">Contacts</a>
         <a href="experience.html">Our Experience</a>
       </nav>
     </div>
-  </header>
 
-  <main class="page-content">
-    <div class="page-card">
-      <h2>Contacts</h2>
+    <div class="about-image-copy">
       <p>Email us at <a href="mailto:hello@ngoproposalbuilder.org">hello@ngoproposalbuilder.org</a> for support, partnerships, and collaboration enquiries.</p>
       <p>We are here to help community-focused organizations turn ideas into action.</p>
     </div>
+  </header>
+
+  <main class="page-content">
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Grant <span>Bridge</span></h3>
+        <p>Building stronger community impact through clear, actionable proposals.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><span>✓</span> <a href="index.html">Home</a></li>
+          <li><span>✓</span> <a href="about.html">About Us</a></li>
+          <li><span>✓</span> <a href="offer.html">What We Offer</a></li>
+          <li><span>✓</span> <a href="contacts.html">Contacts</a></li>
+          <li><span>✓</span> <a href="experience.html">Our Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-phone fa-fw"></i>
+          <div>
+            <span class="label">Call Us</span>
+            <a href="tel:+254712345678">+254 712 345 678</a>
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot fa-fw"></i>
+          <div>
+            <span class="label">Location</span>
+            <p>Mombasa, Kenya</p>
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-envelope fa-fw"></i>
+          <div>
+            <span class="label">Email</span>
+            <a href="mailto:info@grantbridge.com">info@grantbridge.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Grant Bridge. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
