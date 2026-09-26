@@ -31,15 +31,22 @@ const proposalOutput = document.getElementById('proposalOutput');
 const donorLinksContainer = document.getElementById('donorLinksContainer');
 const copyBtn = document.getElementById('copyBtn');
 const printBtn = document.getElementById('printBtn');
+const printActionBtn = document.getElementById('printActionBtn');
+const saveActionBtn = document.getElementById('saveActionBtn');
+const exportMenu = document.getElementById('exportMenu');
 
 // Load dynamic template content & donor links based on selection
 function loadTemplate() {
   const selectedType = templateSelect.value;
-  objectivesInput.value = templates[selectedType].objectives;
+  objectivesInput.value = '';
   outcomesInput.value = templates[selectedType].outcomes;
   
   updateDonorLinks(selectedType);
   generateProposal();
+}
+
+function getObjectiveTextForPreview(type) {
+  return templates[type].objectives;
 }
 
 // Render dynamic donor links
@@ -64,7 +71,7 @@ function generateProposal() {
   const ngoName = orgNameInput.value.trim() || '[NGO Name]';
   const location = locationInput.value.trim() || '[Target Location]';
   const budget = budgetInput.value ? `$${budgetInput.value}` : '[Budget Amount]';
-  const objectives = objectivesInput.value;
+  const objectives = objectivesInput.value.trim() ? objectivesInput.value : getObjectiveTextForPreview(type);
   const outcomes = outcomesInput.value;
 
   const title = type === 'garbage' 
@@ -108,6 +115,23 @@ function copyToClipboard() {
   });
 }
 
+function saveProposal() {
+  const text = proposalOutput.innerText;
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'grant-bridge-proposal.txt';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+function toggleExportMenu() {
+  exportMenu.classList.toggle('hidden');
+}
+
 // Event Listeners
 templateSelect.addEventListener('change', loadTemplate);
 orgNameInput.addEventListener('input', generateProposal);
@@ -117,7 +141,21 @@ objectivesInput.addEventListener('input', generateProposal);
 outcomesInput.addEventListener('input', generateProposal);
 
 copyBtn.addEventListener('click', copyToClipboard);
-printBtn.addEventListener('click', () => window.print());
+printBtn.addEventListener('click', toggleExportMenu);
+printActionBtn.addEventListener('click', () => {
+  exportMenu.classList.add('hidden');
+  window.print();
+});
+saveActionBtn.addEventListener('click', () => {
+  exportMenu.classList.add('hidden');
+  saveProposal();
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.export-wrapper') && !event.target.closest('#printBtn')) {
+    exportMenu.classList.add('hidden');
+  }
+});
 
 // Initialize page on startup
 window.addEventListener('DOMContentLoaded', loadTemplate);

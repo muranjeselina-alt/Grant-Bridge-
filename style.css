@@ -18,12 +18,8 @@
 
 body {
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 25, 47, 0.52), rgba(0, 25, 47, 0.52)), url('https://i.pinimg.com/736x/7e/f9/1f/7ef91f94edcea5b7c4a684ae1f22a40d.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: var(--white);
+  background: #f4f7fb;
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
@@ -383,6 +379,47 @@ textarea {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.export-wrapper {
+  position: relative;
+}
+
+.export-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  background: var(--white);
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 0.45rem;
+  z-index: 20;
+  white-space: nowrap;
+}
+
+.export-menu.hidden {
+  display: none;
+}
+
+.export-option {
+  background: var(--light-orange);
+  color: var(--primary-blue);
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.export-option:hover {
+  background: #f7d7b5;
 }
 
 .btn {
