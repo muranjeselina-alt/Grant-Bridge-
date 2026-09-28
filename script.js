@@ -27,22 +27,25 @@ const locationInput = document.getElementById('targetLocation');
 const budgetInput = document.getElementById('budget');
 const objectivesInput = document.getElementById('projectObjectives');
 const outcomesInput = document.getElementById('expectedOutcomes');
+const resetObjectivesBtn = document.getElementById('resetObjectivesBtn');
+const resetOutcomesBtn = document.getElementById('resetOutcomesBtn');
 const proposalOutput = document.getElementById('proposalOutput');
 const donorLinksContainer = document.getElementById('donorLinksContainer');
 const copyBtn = document.getElementById('copyBtn');
-const printBtn = document.getElementById('printBtn');
-const printActionBtn = document.getElementById('printActionBtn');
-const saveActionBtn = document.getElementById('saveActionBtn');
-const exportMenu = document.getElementById('exportMenu');
+const printPdfBtn = document.getElementById('printPdfBtn');
+const savePdfBtn = document.getElementById('savePdfBtn');
+
+function applySuggestedDraft(type) {
+  objectivesInput.value = templates[type].objectives;
+  outcomesInput.value = templates[type].outcomes;
+  generateProposal();
+}
 
 // Load dynamic template content & donor links based on selection
 function loadTemplate() {
   const selectedType = templateSelect.value;
-  objectivesInput.value = '';
-  outcomesInput.value = templates[selectedType].outcomes;
-  
+  applySuggestedDraft(selectedType);
   updateDonorLinks(selectedType);
-  generateProposal();
 }
 
 function getObjectiveTextForPreview(type) {
@@ -116,20 +119,21 @@ function copyToClipboard() {
 }
 
 function saveProposal() {
-  const text = proposalOutput.innerText;
-  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'grant-bridge-proposal.txt';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+  const lines = pdf.splitTextToSize(proposalOutput.innerText, 170);
+  let yPosition = 20;
 
-function toggleExportMenu() {
-  exportMenu.classList.toggle('hidden');
+  lines.forEach(line => {
+    if (yPosition > 280) {
+      pdf.addPage();
+      yPosition = 20;
+    }
+    pdf.text(line, 20, yPosition);
+    yPosition += 7;
+  });
+
+  pdf.save('grant-bridge-proposal.pdf');
 }
 
 // Event Listeners
@@ -140,22 +144,19 @@ budgetInput.addEventListener('input', generateProposal);
 objectivesInput.addEventListener('input', generateProposal);
 outcomesInput.addEventListener('input', generateProposal);
 
-copyBtn.addEventListener('click', copyToClipboard);
-printBtn.addEventListener('click', toggleExportMenu);
-printActionBtn.addEventListener('click', () => {
-  exportMenu.classList.add('hidden');
-  window.print();
-});
-saveActionBtn.addEventListener('click', () => {
-  exportMenu.classList.add('hidden');
-  saveProposal();
+resetObjectivesBtn.addEventListener('click', () => {
+  objectivesInput.value = templates[templateSelect.value].objectives;
+  generateProposal();
 });
 
-document.addEventListener('click', (event) => {
-  if (!event.target.closest('.export-wrapper') && !event.target.closest('#printBtn')) {
-    exportMenu.classList.add('hidden');
-  }
+resetOutcomesBtn.addEventListener('click', () => {
+  outcomesInput.value = templates[templateSelect.value].outcomes;
+  generateProposal();
 });
+
+copyBtn.addEventListener('click', copyToClipboard);
+printPdfBtn.addEventListener('click', () => window.print());
+savePdfBtn.addEventListener('click', saveProposal);
 
 // Initialize page on startup
 window.addEventListener('DOMContentLoaded', loadTemplate);

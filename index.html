@@ -37,6 +37,20 @@
       <p class="hero-subtext">Turn ideas into fundable plans that create lasting local impact.</p>
       <a class="hero-btn" href="#proposal-form">Generate Now</a>
     </div>
+    <div class="hero-social-links" aria-label="Social media links">
+      <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+    </div>
   </section>
 
   <main class="container">
@@ -69,11 +83,15 @@
 
       <div class="form-group">
         <label for="projectObjectives">Key Objectives</label>
+        <div class="field-hint">Suggested draft based on the selected proposal type. Edit it to match your project.</div>
+        <button type="button" class="inline-action" id="resetObjectivesBtn">Reset suggested objectives</button>
         <textarea id="projectObjectives" placeholder="Enter your objectives here..."></textarea>
       </div>
 
       <div class="form-group">
         <label for="expectedOutcomes">Expected Impact / Outcomes</label>
+        <div class="field-hint">Suggested draft based on the selected proposal type. Edit it to reflect your actual impact.</div>
+        <button type="button" class="inline-action" id="resetOutcomesBtn">Reset suggested outcomes</button>
         <textarea id="expectedOutcomes"></textarea>
       </div>
     </section>
@@ -87,14 +105,8 @@
       
       <div class="btn-group">
         <button class="btn btn-primary" id="copyBtn">Copy Proposal Text</button>
-
-        <div class="export-wrapper">
-          <button class="btn btn-secondary" id="printBtn">Print / Save PDF</button>
-          <div class="export-menu hidden" id="exportMenu">
-            <button type="button" class="export-option" id="printActionBtn">Print</button>
-            <button type="button" class="export-option" id="saveActionBtn">Save</button>
-          </div>
-        </div>
+        <button class="btn btn-secondary" id="printPdfBtn">Print PDF</button>
+        <button class="btn btn-save-pdf" id="savePdfBtn">Save PDF</button>
       </div>
 
       <!-- Donor Link Section -->
@@ -159,6 +171,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
 </body>
 </html>
