@@ -35,7 +35,10 @@ const copyBtn = document.getElementById('copyBtn');
 const printPdfBtn = document.getElementById('printPdfBtn');
 const savePdfBtn = document.getElementById('savePdfBtn');
 
+const hasProposalForm = !!(templateSelect && orgNameInput && locationInput && budgetInput && objectivesInput && outcomesInput && proposalOutput && donorLinksContainer && copyBtn && printPdfBtn && savePdfBtn && resetObjectivesBtn && resetOutcomesBtn);
+
 function applySuggestedDraft(type) {
+  if (!hasProposalForm) return;
   objectivesInput.value = templates[type].objectives;
   outcomesInput.value = templates[type].outcomes;
   generateProposal();
@@ -43,6 +46,7 @@ function applySuggestedDraft(type) {
 
 // Load dynamic template content & donor links based on selection
 function loadTemplate() {
+  if (!hasProposalForm) return;
   const selectedType = templateSelect.value;
   applySuggestedDraft(selectedType);
   updateDonorLinks(selectedType);
@@ -54,6 +58,7 @@ function getObjectiveTextForPreview(type) {
 
 // Render dynamic donor links
 function updateDonorLinks(type) {
+  if (!hasProposalForm) return;
   const donorList = templates[type].donors;
   donorLinksContainer.innerHTML = '';
 
@@ -70,6 +75,7 @@ function updateDonorLinks(type) {
 
 // Generate Live Proposal Text
 function generateProposal() {
+  if (!hasProposalForm) return;
   const type = templateSelect.value;
   const ngoName = orgNameInput.value.trim() || '[NGO Name]';
   const location = locationInput.value.trim() || '[Target Location]';
@@ -137,26 +143,32 @@ function saveProposal() {
 }
 
 // Event Listeners
-templateSelect.addEventListener('change', loadTemplate);
-orgNameInput.addEventListener('input', generateProposal);
-locationInput.addEventListener('input', generateProposal);
-budgetInput.addEventListener('input', generateProposal);
-objectivesInput.addEventListener('input', generateProposal);
-outcomesInput.addEventListener('input', generateProposal);
+if (hasProposalForm) {
+  templateSelect.addEventListener('change', loadTemplate);
+  orgNameInput.addEventListener('input', generateProposal);
+  locationInput.addEventListener('input', generateProposal);
+  budgetInput.addEventListener('input', generateProposal);
+  objectivesInput.addEventListener('input', generateProposal);
+  outcomesInput.addEventListener('input', generateProposal);
 
-resetObjectivesBtn.addEventListener('click', () => {
-  objectivesInput.value = templates[templateSelect.value].objectives;
-  generateProposal();
-});
+  resetObjectivesBtn.addEventListener('click', () => {
+    objectivesInput.value = templates[templateSelect.value].objectives;
+    generateProposal();
+  });
 
-resetOutcomesBtn.addEventListener('click', () => {
-  outcomesInput.value = templates[templateSelect.value].outcomes;
-  generateProposal();
-});
+  resetOutcomesBtn.addEventListener('click', () => {
+    outcomesInput.value = templates[templateSelect.value].outcomes;
+    generateProposal();
+  });
 
-copyBtn.addEventListener('click', copyToClipboard);
-printPdfBtn.addEventListener('click', () => window.print());
-savePdfBtn.addEventListener('click', saveProposal);
+  copyBtn.addEventListener('click', copyToClipboard);
+  printPdfBtn.addEventListener('click', () => window.print());
+  savePdfBtn.addEventListener('click', saveProposal);
+}
 
 // Initialize page on startup
-window.addEventListener('DOMContentLoaded', loadTemplate);
+window.addEventListener('DOMContentLoaded', () => {
+  if (hasProposalForm) {
+    loadTemplate();
+  }
+});

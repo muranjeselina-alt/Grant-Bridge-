@@ -1,0 +1,61 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">African community project collaboration</title>
+  <desc id="desc">Illustration of community members working together in an African setting.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dff3ff"/>
+      <stop offset="100%" stop-color="#fef3d9"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#c8a86a"/>
+      <stop offset="100%" stop-color="#8d6a38"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="980" cy="130" r="90" fill="#ffbf69" opacity="0.85"/>
+
+  <path d="M0 520C150 470 220 430 360 470C470 503 560 470 670 433C800 387 900 390 1200 490V800H0V520Z" fill="#d0b076" opacity="0.48"/>
+  <path d="M0 560C130 530 220 500 330 535C420 564 540 540 630 510C770 468 910 466 1200 560V800H0V560Z" fill="url(#ground)"/>
+
+  <rect x="120" y="250" width="960" height="210" rx="24" fill="#f8f2ea" opacity="0.88"/>
+  <rect x="150" y="270" width="900" height="170" rx="18" fill="#fffaf2" opacity="0.8"/>
+
+  <g opacity="0.9">
+    <rect x="210" y="315" width="160" height="90" rx="12" fill="#f2f2f2"/>
+    <rect x="245" y="338" width="88" height="44" rx="8" fill="#d8e7f4"/>
+    <circle cx="270" cy="290" r="18" fill="#c45a2d"/>
+    <path d="M242 286c10-27 36-36 58-22c17 10 22 31 16 49h-74c-8-14-5-19 0-27z" fill="#3d2b22" opacity="0.9"/>
+    <path d="M292 355l40 22l15-40l46 40h-30l-18 42h-60l-41-26z" fill="#0d6d5f"/>
+    <path d="M290 355l-28 70h50l18-70z" fill="#0f3057"/>
+  </g>
+
+  <g opacity="0.94">
+    <circle cx="470" cy="270" r="34" fill="#8d5d3d"/>
+    <path d="M444 315c14-25 67-25 80 0v88h-80v-88z" fill="#0d6d5f"/>
+    <path d="M430 370l40 82 24-76h-64z" fill="#245f7a"/>
+    <path d="M510 370l-42 85 64-6 10-72z" fill="#1b4d73"/>
+  </g>
+
+  <g opacity="0.94">
+    <circle cx="660" cy="270" r="34" fill="#b77b4c"/>
+    <path d="M632 315c16-25 81-24 97 0v88h-97v-88z" fill="#1f7a59"/>
+    <path d="M618 378l58 84 28-82h-86z" fill="#0e4a6f"/>
+    <path d="M705 380l-28 82 66-10 12-66z" fill="#183d5e"/>
+  </g>
+
+  <g opacity="0.96">
+    <circle cx="840" cy="285" r="34" fill="#7a4b30"/>
+    <path d="M806 332c16-26 90-26 108 0v90h-108v-90z" fill="#d77027"/>
+    <path d="M792 385l46 86 36-76h-82z" fill="#214d6b"/>
+    <path d="M925 390l-47 82 62-10 14-66z" fill="#173d5f"/>
+  </g>
+
+  <g>
+    <rect x="340" y="600" width="520" height="28" rx="14" fill="#7a5a35" opacity="0.32"/>
+    <circle cx="450" cy="650" r="12" fill="#f1d4a6"/>
+    <rect x="428" y="660" width="44" height="34" rx="8" fill="#f1d4a6" opacity="0.7"/>
+    <circle cx="715" cy="654" r="14" fill="#d7a066"/>
+    <rect x="690" y="668" width="52" height="28" rx="8" fill="#d7a066" opacity="0.7"/>
+  </g>
+</svg>

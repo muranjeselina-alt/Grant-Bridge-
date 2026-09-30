@@ -26,7 +26,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="offer.html">What We Offer</a>
-        <a href="contacts.html">Contacts</a>
+        <a href="contacts.html">Our Contacts</a>
         <a href="experience.html">Our Experience</a>
       </nav>
     </div>
@@ -35,7 +35,7 @@
       <p class="section-eyebrow">What we offer</p>
       <h2>Find the right path from community idea to donor-ready proposal.</h2>
       <p>Practical tools and guidance for organizations building projects that deserve to be seen, supported, and sustained.</p>
-      <a class="hero-btn" href="index.html#proposal-form">Start a proposal</a>
+      <a class="hero-btn" href="#proposal-form">Start a proposal</a>
     </div>
   </header>
 
@@ -62,14 +62,14 @@
           <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
           <h3>Proposal development</h3>
           <p>Turn your project idea into a clear proposal with strong objectives, activities, outcomes, and budget language.</p>
-          <a href="index.html#proposal-form">Build a proposal <span aria-hidden="true">↗</span></a>
+          <a href="#proposal-form">Build a proposal <span aria-hidden="true">↗</span></a>
         </article>
         <article class="service-card">
           <span class="service-number">02</span>
           <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
           <h3>Donor direction</h3>
           <p>Use focused donor suggestions and project positioning to spend less time searching and more time building the right fit.</p>
-          <a href="index.html#proposal-form">Explore your fit <span aria-hidden="true">↗</span></a>
+          <a href="#proposal-form">Explore your fit <span aria-hidden="true">↗</span></a>
         </article>
         <article class="service-card">
           <span class="service-number">03</span>
@@ -92,6 +92,21 @@
       <div class="offer-section-heading">
         <p class="section-eyebrow">How it works</p>
         <h2 id="process-title">A simple route to a stronger funding conversation.</h2>
+        <div class="process-visual" aria-label="Path to generate a proposal">
+          <svg class="process-arrow" viewBox="0 0 420 180" role="img" aria-label="Arrow pointing to generate button" aria-hidden="true">
+            <defs>
+              <linearGradient id="processArrowGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FF6F00"/>
+                <stop offset="38%" stop-color="#FFB347"/>
+                <stop offset="68%" stop-color="#1E88E5"/>
+                <stop offset="100%" stop-color="#004B87"/>
+              </linearGradient>
+            </defs>
+            <path class="process-arrow-line" d="M42 18 C 130 14, 196 39, 207 91 C 211 111, 210 135, 210 163 M181 136 L210 166 L239 136" />
+            <path class="process-arrow-line process-arrow-line-soft" d="M42 18 C 130 14, 196 39, 207 91 C 211 111, 210 135, 210 163 M181 136 L210 166 L239 136" />
+          </svg>
+          <a class="process-cta-btn" href="#proposal-form">Generate now</a>
+        </div>
       </div>
       <ol class="offer-process-list">
         <li><span>01</span><div><h3>Start with the need</h3><p>Describe the community challenge and the people your work will serve.</p></div></li>
@@ -99,6 +114,77 @@
         <li><span>03</span><div><h3>Find the fit</h3><p>Compare your project with donor priorities and choose opportunities that make sense.</p></div></li>
         <li><span>04</span><div><h3>Tell the story</h3><p>Present a focused proposal that makes your purpose, plan, and impact easy to trust.</p></div></li>
       </ol>
+    </section>
+
+    <section class="offer-generator offer-section" id="proposal-form" aria-labelledby="proposal-form-title">
+      <div class="offer-section-heading centered-heading">
+        <p class="section-eyebrow">Create your proposal</p>
+        <h2 id="proposal-form-title">Build a donor-ready draft in minutes.</h2>
+      </div>
+
+      <div class="proposal-layout">
+        <section class="card form-card" aria-label="Proposal configuration form">
+          <h3>Proposal Configuration</h3>
+
+          <div class="form-group">
+            <label for="templateSelect">Select Proposal Type</label>
+            <select id="templateSelect">
+              <option value="garbage">Community Garbage Collection & Waste Management</option>
+              <option value="boychild">Empowerment & Mentorship for the Boy Child</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="organizationName">NGO / Organization Name</label>
+            <input type="text" id="organizationName" placeholder="e.g., Hope Foundation">
+          </div>
+
+          <div class="form-group">
+            <label for="targetLocation">Target Community / Location</label>
+            <input type="text" id="targetLocation" placeholder="e.g., Eastside District">
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Estimated Budget (ksh)</label>
+            <input type="number" id="budget" placeholder="e.g., 15000">
+          </div>
+
+          <div class="form-group">
+            <label for="projectObjectives">Key Objectives</label>
+            <div class="field-hint">Suggested draft based on the selected proposal type. Edit it to match your project.</div>
+            <button type="button" class="inline-action" id="resetObjectivesBtn">Reset suggested objectives</button>
+            <textarea id="projectObjectives" placeholder="Enter your objectives here..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="expectedOutcomes">Expected Impact / Outcomes</label>
+            <div class="field-hint">Suggested draft based on the selected proposal type. Edit it to reflect your actual impact.</div>
+            <button type="button" class="inline-action" id="resetOutcomesBtn">Reset suggested outcomes</button>
+            <textarea id="expectedOutcomes"></textarea>
+          </div>
+        </section>
+
+        <section class="card preview-card" aria-label="Generated proposal preview">
+          <h3>Generated Document Preview</h3>
+          <div id="proposalOutput" class="preview-box">
+            <!-- Live proposal text populates here -->
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-primary" id="copyBtn">Copy Proposal Text</button>
+            <button class="btn btn-secondary" id="printPdfBtn">Print PDF</button>
+            <button class="btn btn-save-pdf" id="savePdfBtn">Save PDF</button>
+          </div>
+
+          <div class="donor-section">
+            <h4>Connect with Potential Donors</h4>
+            <p>Explore grant opportunities tailored to your selected project type:</p>
+            <div id="donorLinksContainer" class="donor-links">
+              <!-- Dynamic donor links populated via JS -->
+            </div>
+          </div>
+        </section>
+      </div>
     </section>
 
     <section class="offer-audience offer-section" aria-labelledby="audience-title">
@@ -114,7 +200,7 @@
       </div>
     </section>
 
-    <section class="offer-tips offer-section" aria-labelledby="tips-title">
+    <!-- <section class="offer-tips offer-section" aria-labelledby="tips-title">
       <div class="offer-section-heading">
         <p class="section-eyebrow">Before you apply</p>
         <h2 id="tips-title">Four habits that make fundraising stronger.</h2>
@@ -125,14 +211,14 @@
         <article><span>03</span><div><h3>Show the change</h3><p>Connect activities to realistic outcomes and explain how you will recognize progress.</p></div></article>
         <article><span>04</span><div><h3>Build relationships</h3><p>Stay connected to local partners, community leaders, and supporters beyond a single request.</p></div></article>
       </div>
-    </section>
+    </section> -->
 
     <section class="offer-cta" aria-labelledby="offer-cta-title">
       <div>
         <p class="section-eyebrow">Your next step</p>
         <h2 id="offer-cta-title">Bring the idea. We will help you give it structure.</h2>
       </div>
-      <a class="hero-btn" href="index.html#proposal-form">Find your starting point</a>
+      <a class="hero-btn" href="#proposal-form">Find your starting point</a>
     </section>
   </main>
 
@@ -149,7 +235,7 @@
           <li><span>✓</span> <a href="index.html">Home</a></li>
           <li><span>✓</span> <a href="about.html">About Us</a></li>
           <li><span>✓</span> <a href="offer.html">What We Offer</a></li>
-          <li><span>✓</span> <a href="contacts.html">Contacts</a></li>
+          <li><span>✓</span> <a href="contacts.html">Our Contacts</a></li>
           <li><span>✓</span> <a href="experience.html">Our Experience</a></li>
         </ul>
       </div>
@@ -159,7 +245,7 @@
           <i class="fa-solid fa-phone fa-fw"></i>
           <div>
             <span class="label">Call Us</span>
-            <a href="tel:+254712345678">+254 712 345 678</a>
+            <a href="tel:+254717185603">0717185603</a>
           </div>
         </div>
 
@@ -187,5 +273,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
 </body>
 </html>

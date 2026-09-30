@@ -27,7 +27,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="offer.html">What We Offer</a>
-        <a href="contacts.html">Contacts</a>
+        <a href="contacts.html">Our Contacts</a>
         <a href="experience.html">Our Experience</a>
         <!-- <a class="generate-btn" href="#proposal-form">Generate Now</a> -->
       </nav>
@@ -35,7 +35,7 @@
     <div class="hero-content">
       <h2>Empowering communities through actionable project proposals</h2>
       <p class="hero-subtext">Turn ideas into fundable plans that create lasting local impact.</p>
-      <a class="hero-btn" href="#proposal-form">Generate Now</a>
+      <a class="hero-btn" href="offer.html#proposal-form">Generate Now</a>
     </div>
     <div class="hero-social-links" aria-label="Social media links">
       <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
@@ -53,68 +53,65 @@
     </div>
   </section>
 
-  <main class="container">
-    <!-- Form Side -->
-    <section class="card" id="proposal-form">
-      <h2>Proposal Configuration</h2>
-      
-      <div class="form-group">
-        <label for="templateSelect">Select Proposal Type</label>
-        <select id="templateSelect">
-          <option value="garbage">Community Garbage Collection & Waste Management</option>
-          <option value="boychild">Empowerment & Mentorship for the Boy Child</option>
-        </select>
+  <main>
+    <section class="about-mission about-section" id="mission" aria-labelledby="mission-title">
+      <div class="about-section-heading centered-heading">
+        <p class="section-eyebrow">Mission and vision</p>
+        <h2 id="mission-title">Supporting the people already doing the work.</h2>
       </div>
-
-      <div class="form-group">
-        <label for="organizationName">NGO / Organization Name</label>
-        <input type="text" id="organizationName" placeholder="e.g., Hope Foundation">
-      </div>
-
-      <div class="form-group">
-        <label for="targetLocation">Target Community / Location</label>
-        <input type="text" id="targetLocation" placeholder="e.g., Eastside District">
-      </div>
-
-      <div class="form-group">
-        <label for="budget">Estimated Budget ($)</label>
-        <input type="number" id="budget" placeholder="e.g., 15000">
-      </div>
-
-      <div class="form-group">
-        <label for="projectObjectives">Key Objectives</label>
-        <div class="field-hint">Suggested draft based on the selected proposal type. Edit it to match your project.</div>
-        <button type="button" class="inline-action" id="resetObjectivesBtn">Reset suggested objectives</button>
-        <textarea id="projectObjectives" placeholder="Enter your objectives here..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="expectedOutcomes">Expected Impact / Outcomes</label>
-        <div class="field-hint">Suggested draft based on the selected proposal type. Edit it to reflect your actual impact.</div>
-        <button type="button" class="inline-action" id="resetOutcomesBtn">Reset suggested outcomes</button>
-        <textarea id="expectedOutcomes"></textarea>
+      <div class="mission-grid">
+        <article class="mission-card">
+          <span class="mission-number">01</span>
+          <h3>Our mission</h3>
+          <p>To equip community organizations with clear proposals, practical planning tools, and the confidence to pursue support for projects that create lasting local impact.</p>
+        </article>
+        <article class="mission-card mission-card-accent">
+          <span class="mission-number">02</span>
+          <h3>Our vision</h3>
+          <p>A future where strong community ideas are visible, well-structured, and connected to the partners and resources they need to grow.</p>
+        </article>
       </div>
     </section>
 
-    <!-- Preview & Outreach Side -->
-    <section class="card">
-      <h2>Generated Document Preview</h2>
-      <div id="proposalOutput" class="preview-box">
-        <!-- Live proposal text populates here -->
-      </div>
-      
-      <div class="btn-group">
-        <button class="btn btn-primary" id="copyBtn">Copy Proposal Text</button>
-        <button class="btn btn-secondary" id="printPdfBtn">Print PDF</button>
-        <button class="btn btn-save-pdf" id="savePdfBtn">Save PDF</button>
+    <section class="flow-section about-section" aria-labelledby="how-it-works-title">
+      <div class="about-section-heading centered-heading">
+        <p class="section-eyebrow">How it works</p>
+        <h2 id="how-it-works-title">From a community idea to a donor-ready proposal.</h2>
       </div>
 
-      <!-- Donor Link Section -->
-      <div class="donor-section">
-        <h3>Connect with Potential Donors</h3>
-        <p>Explore grant opportunities tailored to your selected project type:</p>
-        <div id="donorLinksContainer" class="donor-links">
-          <!-- Dynamic donor links populated via JS -->
+      <div class="flow-grid">
+        <div class="flow-step">
+          <span class="flow-number">01</span>
+          <div class="flow-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>Share your idea</h3>
+          <p>Tell us your community challenge, location, and the change you want to make.</p>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-step">
+          <span class="flow-number">02</span>
+          <div class="flow-icon"><i class="fa-solid fa-file-pen"></i></div>
+          <h3>Build the proposal</h3>
+          <p>We turn your story into clear objectives, outcomes, budget language, and donor-fit messaging.</p>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-step">
+          <span class="flow-number">03</span>
+          <div class="flow-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>Match the right donors</h3>
+          <p>We align your project with funding priorities that make sense for your mission and context.</p>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-step">
+          <span class="flow-number">04</span>
+          <div class="flow-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+          <h3>Grow your impact</h3>
+          <p>With a stronger proposal, you can approach partners with confidence and clarity.</p>
         </div>
       </div>
     </section>
@@ -133,7 +130,7 @@
           <li><span>✓</span> <a href="index.html">Home</a></li>
           <li><span>✓</span> <a href="about.html">About Us</a></li>
           <li><span>✓</span> <a href="offer.html">What We Offer</a></li>
-          <li><span>✓</span> <a href="contacts.html">Contacts</a></li>
+          <li><span>✓</span> <a href="contacts.html">Our Contacts</a></li>
           <li><span>✓</span> <a href="experience.html">Our Experience</a></li>
         </ul>
       </div>
@@ -143,7 +140,7 @@
           <i class="fa-solid fa-phone fa-fw"></i>
           <div>
             <span class="label">Call Us</span>
-            <a href="tel:+254712345678">+254 712 345 678</a>
+            <a href="tel:+254717185603">0717185603</a>
           </div>
         </div>
 
